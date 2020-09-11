@@ -30,8 +30,8 @@ export const _menuItemContainer = (
 
 export const _menuBarContainer = (
   theme: string,
-  menuBarContainerHeight: number,
-  menuBarContainerWidth: number,
+  menuBarContainerHeight?: number,
+  menuBarContainerWidth?: number,
 ): ViewStyle => ({
   borderBottomEndRadius: 16,
   borderBottomStartRadius: 16,
