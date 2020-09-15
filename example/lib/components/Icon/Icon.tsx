@@ -3,7 +3,8 @@ import { Animated, Easing, ImageStyle } from "react-native";
 /**
  * ? Local Imports
  */
-import { DARK, LIGHT } from "../theme";
+import { DARK, LIGHT } from "../../theme";
+
 // ? Assets
 import defaultLightIconImage from "./down-arrow-light.png";
 import defaultDarkIconImage from "./down-arrow-dark.png";

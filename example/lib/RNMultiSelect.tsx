@@ -1,3 +1,4 @@
+import { findIndex } from "lodash";
 import * as React from "react";
 import {
   Text,
@@ -23,12 +24,14 @@ import styles, {
   _imageStyle,
   _menuItemTextStyle,
 } from "./RNMultiSelect.style";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 import { ThemeColors, DARK, LIGHT } from "./theme";
 
 export interface IMultiSelectDataTypes {
   id: number;
   value: string;
+  isChecked: boolean;
   data?: any;
 }
 
@@ -132,11 +135,24 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
     setMenuToggled(isMenuToggled ? isMenuToggled : !menuToggled);
   };
 
-  const handleOnSelectItem = (item: IMultiSelectDataTypes) => {
+  const handleOnSelectItem = (
+    item: IMultiSelectDataTypes,
+    checked: boolean,
+  ) => {
     handleOnFilter("");
-    var joined = selectedItems.concat(item);
-    console.log("Joined: ", joined);
-    setSelectedItems(joined);
+    if (checked) {
+      const joined = selectedItems.concat(item);
+      console.log("Joined: ", joined);
+      setSelectedItems(joined);
+    } else {
+      const index = findIndex(selectedItems, { id: item.id });
+      if (index !== -1) {
+        // Splice(Delete) the matched ID
+        selectedItems.splice(index, 1);
+        setSelectedItems(selectedItems);
+        console.log("RNMultiSelect -> removed", selectedItems);
+      }
+    }
     // handleOnToggleMenuBar();
     onSelect && onSelect(selectedItems);
   };
@@ -219,16 +235,17 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
 
   const renderMenuItem = (menuItem: any) => {
     const { index } = menuItem;
-    const { id, value, imageSource } = menuItem.item;
+    const { id, value, isChecked, imageSource } = menuItem.item;
     return (
-      <TouchableHighlight
-        key={id}
-        style={_menuItemContainer(index, data)}
-        onPress={() => {
-          handleOnSelectItem(menuItem.item);
-        }}
-      >
+      <View key={id} style={_menuItemContainer(index, data)}>
         <View style={styles.menuBarItemContainerGlue}>
+          <BouncyCheckbox
+            isChecked={isChecked}
+            text={value}
+            onPress={(checked) => {
+              handleOnSelectItem(menuItem.item, checked);
+            }}
+          />
           {imageSource && (
             <ImageComponent
               resizeMode="contain"
@@ -236,12 +253,8 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
               style={_imageStyle(imageHeight, imageWidth)}
             />
           )}
-          {renderCheckbox()}
-          <TextComponent style={[_menuItemTextStyle(theme), menuItemTextStyle]}>
-            {value}
-          </TextComponent>
         </View>
-      </TouchableHighlight>
+      </View>
     );
   };
 
