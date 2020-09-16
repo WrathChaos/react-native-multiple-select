@@ -48,6 +48,7 @@ export interface IMultiSelectProps {
   doneButtonText?: string;
   menuItemTextStyle?: any;
   disableAbsolute?: boolean;
+  doneButtonTextStyle?: any;
   buttonContainerStyle?: any;
   menuBarContainerStyle?: any;
   doneButtonShadowColor?: string;
@@ -77,6 +78,7 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
     arrowImageStyle,
     menuItemTextStyle,
     onDoneButtonPress,
+    doneButtonTextStyle,
     buttonContainerStyle,
     menuBarContainerStyle,
     menuBarContainerWidth,
@@ -330,7 +332,9 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
               doneButtonShadowColor,
             )}
           >
-            <TextComponent style={{ fontWeight: "bold", color: "#fdfdfd" }}>
+            <TextComponent
+              style={[styles.doneButtonTextStyle, doneButtonTextStyle]}
+            >
               {doneButtonText || "Done"}
             </TextComponent>
           </View>

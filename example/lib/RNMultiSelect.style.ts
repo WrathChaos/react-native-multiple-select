@@ -6,6 +6,7 @@ interface Style {
   arrowImageStyle: ImageStyle;
   buttonContainerGlue: ViewStyle;
   arrowImageContainer: ViewStyle;
+  doneButtonTextStyle: TextStyle;
   checkboxContainerStyle: ViewStyle;
   menuBarItemContainerGlue: ViewStyle;
 }
@@ -14,13 +15,13 @@ export const _placeholderTextStyle = (
   theme: string,
   selectedItem: Array<IMultiSelectDataTypes>,
 ): TextStyle => ({
+  height: 50,
   width: "80%",
   fontSize: 15,
-  height: 50,
-  backgroundColor: "#f4f6f8",
-  borderRadius: 16,
   paddingLeft: 16,
+  borderRadius: 16,
   fontWeight: "bold",
+  backgroundColor: "#f4f6f8",
   color:
     selectedItem?.length > 0
       ? ThemeColors[theme].textColor
@@ -66,7 +67,7 @@ export const _imageStyle = (
 ): ImageStyle => ({
   width,
   height,
-  marginRight: 16,
+  right: 16,
 });
 
 export const _menuItemTextStyle = (theme: string): TextStyle => ({
@@ -120,5 +121,9 @@ export default StyleSheet.create<Style>({
     marginLeft: 12,
     borderRadius: 16,
     borderColor: "#e6e6e7",
+  },
+  doneButtonTextStyle: {
+    color: "#fdfdfd",
+    fontWeight: "bold",
   },
 });

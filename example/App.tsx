@@ -31,7 +31,10 @@ const staticData: Array<IMultiSelectDataTypes> = [
     id: 4,
     value: "Ligula Amet",
     isChecked: false,
-    // imageSource: require("./assets/guitar.png"),
+    imageSource: {
+      uri:
+        "https://images.unsplash.com/photo-1600207203812-6143fa75be0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+    },
   },
 ];
 
