@@ -123,6 +123,10 @@ const staticData: Array<IMultiSelectDataTypes> = [
 - [ ] Dark Mode (Coming Soon!)
 - [ ] Write an article about the lib on Medium
 
+## Credits
+
+Heavily Inspired by [Manuel Rovira's Work](https://dribbble.com/shots/9395928/attachments/1420569?mode=media)
+
 ## Author
 
 FreakyCoder, kurayogun@gmail.com
