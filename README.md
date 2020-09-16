@@ -120,6 +120,7 @@ const staticData: Array<IMultiSelectDataTypes> = [
 
 - [x] ~~LICENSE~~
 - [x] ~~Typescript Challenge!~~
+- [ ] Dark Mode (Coming Soon!)
 - [ ] Write an article about the lib on Medium
 
 ## Author
