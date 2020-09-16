@@ -12,7 +12,7 @@
 
 <p align="center">
   <img alt="React Native Multi Select"
-        src="assets/Screenshots/typescript.jpg" />
+        src="assets/Screenshots/React-Native-Multiple-Select.gif" />
 </p>
 
 # Installation
