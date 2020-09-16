@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@freakycoder/react-native-bounceable": "^0.1.0",
-    "@freakycoder/react-native-multiple-select": "^0.1.0",
+    "@freakycoder/react-native-multiple-select": "^0.1.1",
     "react": "16.13.1",
     "react-native": "0.63.2",
     "react-native-bouncy-checkbox": "^1.0.7"
