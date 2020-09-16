@@ -4,8 +4,8 @@
 
 [![React Native Multi Select](https://img.shields.io/badge/-Customizable%20%26%20Animated%2C%20Easy%20to%20Use%20Multiple%20Select%20Library%20for%20React%20Native-orange?style=for-the-badge)](https://github.com/WrathChaos/react-native-multiple-select)
 
-[![npm version](https://img.shields.io/npm/v/react-native-multiple-select.svg?style=for-the-badge)](https://www.npmjs.com/package/@freakycoder/react-native-multiple-select)
-[![npm](https://img.shields.io/npm/dt/react-native-multiple-select.svg?style=for-the-badge)](https://www.npmjs.com/package/@freakycoder/react-native-multiple-select)
+[![npm version](https://img.shields.io/npm/v/@freakycoder/react-native-multiple-select.svg?style=for-the-badge)](https://www.npmjs.com/package/@freakycoder/react-native-multiple-select)
+[![npm](https://img.shields.io/npm/dt/@freakycoder/react-native-multiple-select.svg?style=for-the-badge)](https://www.npmjs.com/package/@freakycoder/react-native-multiple-select)
 ![Platform - Android and iOS](https://img.shields.io/badge/platform-Android%20%7C%20iOS-blue.svg?style=for-the-badge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
