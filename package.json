@@ -2,7 +2,7 @@
   "name": "react-native-multiple-select",
   "version": "0.1.0",
   "description": "Customizable & Animated, Easy to Use Multiple Select Library for React Native",
-  "main": "./build/dist/index.js",
+  "main": "./build/dist/RNMultiSelect.js",
   "repository": "git@github.com:WrathChaos/react-native-multiple-select.git",
   "author": "FreakyCoder <kurayogun@gmail.com>",
   "license": "MIT",
