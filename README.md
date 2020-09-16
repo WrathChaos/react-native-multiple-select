@@ -4,8 +4,8 @@
 
 [![React Native Multi Select](https://img.shields.io/badge/-Customizable%20%26%20Animated%2C%20Easy%20to%20Use%20Multiple%20Select%20Library%20for%20React%20Native-orange?style=for-the-badge)](https://github.com/WrathChaos/react-native-multiple-select)
 
-[![npm version](https://img.shields.io/npm/v/react-native-multiple-select.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-multiple-select)
-[![npm](https://img.shields.io/npm/dt/react-native-multiple-select.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-multiple-select)
+[![npm version](https://img.shields.io/npm/v/react-native-multiple-select.svg?style=for-the-badge)](https://www.npmjs.com/package/@freakycoder/react-native-multiple-select)
+[![npm](https://img.shields.io/npm/dt/react-native-multiple-select.svg?style=for-the-badge)](https://www.npmjs.com/package/@freakycoder/react-native-multiple-select)
 ![Platform - Android and iOS](https://img.shields.io/badge/platform-Android%20%7C%20iOS-blue.svg?style=for-the-badge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
@@ -20,7 +20,7 @@
 Add the dependency:
 
 ```bash
-npm i react-native-multiple-select
+npm i @freakycoder/react-native-multiple-select
 ```
 
 ## Peer Dependencies
@@ -39,7 +39,7 @@ npm i react-native-multiple-select
 ```jsx
 import RNMultiSelect, {
   IMultiSelectDataTypes,
-} from "react-native-multiple-select";
+} from "@freakycoder/react-native-multiple-select";
 ```
 
 ## Fundamental Usage
@@ -48,9 +48,7 @@ import RNMultiSelect, {
 <RNMultiSelect
   disableAbsolute
   data={staticData}
-  onSelect={(selectedItems) =>
-    console.log("SelectedItems: ", selectedItems)
-  }
+  onSelect={(selectedItems) => console.log("SelectedItems: ", selectedItems)}
 />
 ```
 
@@ -58,26 +56,71 @@ import RNMultiSelect, {
 
 You MUST use this format to generate menu items
 
+```js
+import RNMultiSelect, {
+  IMultiSelectDataTypes,
+} from "@freakycoder/react-native-multiple-select";
 
-
+const staticData: Array<IMultiSelectDataTypes> = [
+  {
+    id: 0,
+    value: "Euismod Justo",
+    isChecked: false,
+  },
+  {
+    id: 1,
+    value: "Risus Venenatis",
+    isChecked: false,
+  },
+  {
+    id: 2,
+    value: "Vestibulum Ullamcorper",
+    isChecked: false,
+  },
+  {
+    id: 3,
+    value: "Lorem Nibh",
+    isChecked: false,
+  },
+  {
+    id: 4,
+    value: "Ligula Amet",
+    isChecked: false,
+  },
+];
+```
 
 # Configuration - Props
 
-| Property |  Type   | Default | Description                                             |
-| -------- | :-----: | :-----: | ------------------------------------------------------- |
-| outline  | boolean |  true   | make the button outline                                 |
-| solid    | boolean |  false  | make the button with a solid background and a shadow    |
-| gradient | boolean |  false  | make the button with a gradient background and a shadow |
-| width    | number  |   150   | change the button's width                               |
+| Property                    |             Type             |  Default  | Description                                                                                                     |
+| --------------------------- | :--------------------------: | :-------: | --------------------------------------------------------------------------------------------------------------- |
+| onSelect                    |           function           | undefined | set the selection function when a menu item is selected                                                         |
+| data                        | Array<IMultiSelectDataTypes> | undefined | set the menu item data array for generating menu bar items                                                      |
+| width                       |            number            |    250    | change the width of the component                                                                               |
+| height                      |            number            |    50     | change the height of the main single select button                                                              |
+| darkMode (**COMING SOON!**) |           boolean            |   false   | change the theme of the component to `dark theme`                                                               |
+| placeholder                 |            string            | "Select"  | change the placeholder of the single select component                                                           |
+| imageHeight                 |            number            |    25     | change the image source's menu item's image height                                                              |
+| imageWidth                  |            number            |    25     | change the image source's menu item's image width                                                               |
+| ImageComponent              |          component           |   Image   | set your own custom Image component instead of default `Image` one                                              |
+| TextComponent               |          component           |   Text    | set your own custom Text component instead of default `Text` one                                                |
+| buttonContainerStyle        |          ViewStyle           |  default  | change/override the top of the single select button (the main one)                                              |
+| menuBarContainerStyle       |          ViewStyle           |  default  | change/override the top of the single select bottom menu bar                                                    |
+| arrowImageStyle             |          ImageStyle          |  default  | change/override the top of the arrow image's style                                                              |
+| menuItemTextStyle           |          TextStyle           |  default  | change/override the top of the each menu bar's item text style                                                  |
+| disableAbsolute             |           boolean            |   false   | if you do not want to use the library without absolute to fix bottom menubar's `overlaps` simply make it `true` |
+| menuBarContainerWidth       |            number            |    250    | change the bottom menu bar's width                                                                              |
+| menuBarContainerHeight      |            number            |    150    | change the bottom menu bar's height                                                                             |
+| disableFilterAnimation      |           boolean            |   false   | disable the filter animation for huge lists (especially on Android)                                             |
+| onDoneButtonPress           |           function           | undefined | handle the onDoneButtonPress function                                                                           |
+| doneButtonTextStyle         |            style             |  default  | change the done button's text style                                                                             |
+| doneButtonShadowColor       |            style             |  default  | change the done button's shadow style                                                                           |
 
 ## Future Plans
 
 - [x] ~~LICENSE~~
+- [x] ~~Typescript Challenge!~~
 - [ ] Write an article about the lib on Medium
-
-# Change Log
-
-Change log will be here !
 
 ## Author
 
