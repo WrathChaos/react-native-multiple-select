@@ -115,6 +115,7 @@ const staticData: Array<IMultiSelectDataTypes> = [
 | onDoneButtonPress           |           function           | undefined | handle the onDoneButtonPress function                                                                           |
 | doneButtonTextStyle         |            style             |  default  | change the done button's text style                                                                             |
 | doneButtonShadowColor       |            style             |  default  | change the done button's shadow style                                                                           |
+| multiSelectionText          |            string            |  default  | change the 3 or more items are selected's text part                                                             |
 
 ## Future Plans
 

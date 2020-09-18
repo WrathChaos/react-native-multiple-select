@@ -51,6 +51,7 @@ export interface IMultiSelectProps {
   doneButtonTextStyle?: any;
   buttonContainerStyle?: any;
   menuBarContainerStyle?: any;
+  multiSelectionText?: string;
   doneButtonShadowColor?: string;
   menuBarContainerWidth?: number;
   menuBarContainerHeight?: number;
@@ -78,6 +79,7 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
     arrowImageStyle,
     menuItemTextStyle,
     onDoneButtonPress,
+    multiSelectionText,
     doneButtonTextStyle,
     buttonContainerStyle,
     menuBarContainerStyle,
@@ -204,7 +206,9 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
     if (selectedItems.length === 0) {
       _text = placeholder || "Select";
     } else if (selectedItems.length > 2) {
-      _text = `${selectedItems.length.toString()} items are selected`;
+      _text = `${selectedItems.length.toString()} ${
+        multiSelectionText || "items are selected"
+      }`;
     } else {
       selectedItems.map((item) => {
         _text = _text + `${item.value}, `;
