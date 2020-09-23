@@ -49,6 +49,7 @@ export interface IMultiSelectProps {
   menuItemTextStyle?: any;
   disableAbsolute?: boolean;
   doneButtonTextStyle?: any;
+  placeholderTextStyle?: any;
   buttonContainerStyle?: any;
   menuBarContainerStyle?: any;
   multiSelectionText?: string;
@@ -81,6 +82,7 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
     onDoneButtonPress,
     multiSelectionText,
     doneButtonTextStyle,
+    placeholderTextStyle,
     buttonContainerStyle,
     menuBarContainerStyle,
     menuBarContainerWidth,
@@ -236,7 +238,10 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
         >
           <View style={styles.buttonContainerGlue}>
             <TextInput
-              style={_placeholderTextStyle(theme, selectedItems)}
+              style={[
+                _placeholderTextStyle(theme, selectedItems),
+                placeholderTextStyle,
+              ]}
               placeholder={placeholder || "Select"}
               onFocus={() => handleOnToggleMenuBar(false)}
               placeholderTextColor={

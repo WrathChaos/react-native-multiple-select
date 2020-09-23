@@ -1,6 +1,6 @@
 {
   "name": "@freakycoder/react-native-multiple-select",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Customizable & Animated, Easy to Use Multiple Select Library for React Native",
   "main": "./build/dist/RNMultiSelect.js",
   "repository": "git@github.com:WrathChaos/react-native-multiple-select.git",
