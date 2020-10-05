@@ -1,8 +1,11 @@
 import React from "react";
 import { View, Text, StatusBar, SafeAreaView } from "react-native";
+// import RNMultiSelect, {
+//   IMultiSelectDataTypes,
+// } from "@freakycoder/react-native-multiple-select";
 import RNMultiSelect, {
   IMultiSelectDataTypes,
-} from "@freakycoder/react-native-multiple-select";
+} from "./build/dist/RNMultiSelect";
 
 const staticData: Array<IMultiSelectDataTypes> = [
   {
@@ -37,6 +40,15 @@ const staticData: Array<IMultiSelectDataTypes> = [
 ];
 
 const App = () => {
+  const [dynamicData, setDynamicData] = React.useState<
+    Array<IMultiSelectDataTypes>
+  >([]);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setDynamicData(staticData);
+    }, 2000);
+  }, []);
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -56,7 +68,7 @@ const App = () => {
         >
           <RNMultiSelect
             disableAbsolute
-            data={staticData}
+            data={dynamicData}
             onSelect={(selectedItems) =>
               console.log("SelectedItems: ", selectedItems)
             }

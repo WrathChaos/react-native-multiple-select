@@ -10,6 +10,8 @@ import {
   LayoutAnimation,
   TouchableOpacity,
 } from "react-native";
+import Spinner from "react-native-spinkit";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 import RNBounceable from "@freakycoder/react-native-bounceable";
 /**
  * ? Local Imports
@@ -24,7 +26,6 @@ import styles, {
   _menuItemTextStyle,
   _doneButtonStyle,
 } from "./RNMultiSelect.style";
-import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 import { ThemeColors, DARK, LIGHT } from "./theme";
 
@@ -45,6 +46,9 @@ export interface IMultiSelectProps {
   ImageComponent?: any;
   placeholder?: string;
   arrowImageStyle?: any;
+  spinnerType?: string;
+  spinnerSize?: number;
+  spinnerColor?: string;
   doneButtonText?: string;
   menuItemTextStyle?: any;
   disableAbsolute?: boolean;
@@ -90,6 +94,9 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
     disableFilterAnimation,
     menuBarContainerHeight,
     doneButtonBackgroundColor,
+    spinnerType = "ThreeBounce",
+    spinnerSize = 30,
+    spinnerColor,
   } = props;
   let iconRef: any = undefined;
 
@@ -101,10 +108,10 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
   // ? Local Data Manipulation for Filtering
   const [dataBackup, setDataBackup] = React.useState<
     Array<IMultiSelectDataTypes> | undefined
-  >(props.data);
+  >(data);
   const [dataSource, setDataSource] = React.useState<
     Array<IMultiSelectDataTypes> | undefined
-  >(props.data);
+  >(data);
   // ? Animation States
   const [borderRadiusAnimation, setBorderRadiusAnimation] = React.useState(
     new Animated.Value(16),
@@ -120,8 +127,17 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
   }, []);
 
   React.useEffect(() => {
+    setDataSource(data);
+    setDataBackup(data);
+  }, [data]);
+
+  React.useEffect(() => {
     onSelect && onSelect(selectedItems);
   }, [selectedItems.length]);
+
+  React.useEffect(() => {
+    setCurrentTheme();
+  }, [darkMode]);
 
   const setCurrentTheme = () => {
     if (darkMode) setTheme(DARK);
@@ -270,10 +286,9 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
   };
 
   const renderMenuItem = (menuItem: any) => {
-    const { index } = menuItem;
     const { value, isChecked, imageSource } = menuItem.item;
     return (
-      <View style={_menuItemContainer(index, data)}>
+      <View style={_menuItemContainer()}>
         <View style={styles.menuBarItemContainerGlue}>
           <BouncyCheckbox
             text={value}
@@ -288,7 +303,7 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
             {...props}
             isChecked={isChecked}
             style={styles.checkboxContainerStyle}
-            onPress={(checked) => {
+            onPress={(checked: boolean) => {
               handleOnSelectItem(menuItem.item, checked);
             }}
           />
@@ -304,26 +319,20 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
     );
   };
 
-  const renderMenuBar = () => {
-    const rotate = menuBarOpenCloseAnimation.interpolate({
-      inputRange: [0, 25, 50, 75, 100],
-      outputRange: [0, 0.5, 0.75, 0.9, 1],
-    });
+  const renderSpinner = () => (
+    <View style={styles.spinnerContainer}>
+      <Spinner
+        size={spinnerSize}
+        type={spinnerType}
+        color={spinnerColor || ThemeColors[theme].textColor}
+        isVisible={!(dataSource && dataSource.length > 0)}
+      />
+    </View>
+  );
+
+  const renderListContainer = () => {
     return (
-      <Animated.View
-        style={[
-          _menuBarContainer(
-            theme,
-            menuBarContainerHeight,
-            menuBarContainerWidth,
-          ),
-          {
-            transform: [{ scaleY: rotate }],
-            display: disableAbsolute ? "flex" : menuToggled ? "flex" : "none",
-          },
-          menuBarContainerStyle,
-        ]}
-      >
+      <>
         <FlatList
           data={dataSource}
           renderItem={renderMenuItem}
@@ -348,6 +357,33 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
             </TextComponent>
           </View>
         </RNBounceable>
+      </>
+    );
+  };
+
+  const renderMenuBar = () => {
+    const rotate = menuBarOpenCloseAnimation.interpolate({
+      inputRange: [0, 25, 50, 75, 100],
+      outputRange: [0, 0.5, 0.75, 0.9, 1],
+    });
+    return (
+      <Animated.View
+        style={[
+          _menuBarContainer(
+            theme,
+            menuBarContainerHeight,
+            menuBarContainerWidth,
+          ),
+          {
+            transform: [{ scaleY: rotate }],
+            display: disableAbsolute ? "flex" : menuToggled ? "flex" : "none",
+          },
+          menuBarContainerStyle,
+        ]}
+      >
+        {dataSource && dataSource.length > 0
+          ? renderListContainer()
+          : renderSpinner()}
       </Animated.View>
     );
   };

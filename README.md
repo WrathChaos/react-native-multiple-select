@@ -21,6 +21,7 @@ Add the dependency:
 
 ```bash
 npm i @freakycoder/react-native-multiple-select
+npx pod-install // After install the `react-native-spinkit`
 ```
 
 ## Peer Dependencies
@@ -28,6 +29,7 @@ npm i @freakycoder/react-native-multiple-select
 <h5><i>IMPORTANT! You need install them</i></h5>
 
 ```js
+"react-native-spinkit": ">= 1.5.1",
 "react-native-bouncy-checkbox": ">= 1.0.7",
 "@freakycoder/react-native-bounceable": ">= 0.1.0",
 ```
@@ -92,37 +94,57 @@ const staticData: Array<IMultiSelectDataTypes> = [
 
 # Configuration - Props
 
-| Property                    |             Type             |  Default  | Description                                                                                                     |
-| --------------------------- | :--------------------------: | :-------: | --------------------------------------------------------------------------------------------------------------- |
-| onSelect                    |           function           | undefined | set the selection function when a menu item is selected                                                         |
-| data                        | Array<IMultiSelectDataTypes> | undefined | set the menu item data array for generating menu bar items                                                      |
-| width                       |            number            |    250    | change the width of the component                                                                               |
-| height                      |            number            |    50     | change the height of the main single select button                                                              |
-| darkMode (**COMING SOON!**) |           boolean            |   false   | change the theme of the component to `dark theme`                                                               |
-| placeholder                 |            string            | "Select"  | change the placeholder of the single select component                                                           |
-| imageHeight                 |            number            |    25     | change the image source's menu item's image height                                                              |
-| imageWidth                  |            number            |    25     | change the image source's menu item's image width                                                               |
-| ImageComponent              |          component           |   Image   | set your own custom Image component instead of default `Image` one                                              |
-| TextComponent               |          component           |   Text    | set your own custom Text component instead of default `Text` one                                                |
-| buttonContainerStyle        |          ViewStyle           |  default  | change/override the top of the single select button (the main one)                                              |
-| menuBarContainerStyle       |          ViewStyle           |  default  | change/override the top of the single select bottom menu bar                                                    |
-| arrowImageStyle             |          ImageStyle          |  default  | change/override the top of the arrow image's style                                                              |
-| menuItemTextStyle           |          TextStyle           |  default  | change/override the top of the each menu bar's item text style                                                  |
-| disableAbsolute             |           boolean            |   false   | if you do not want to use the library without absolute to fix bottom menubar's `overlaps` simply make it `true` |
-| menuBarContainerWidth       |            number            |    250    | change the bottom menu bar's width                                                                              |
-| menuBarContainerHeight      |            number            |    150    | change the bottom menu bar's height                                                                             |
-| disableFilterAnimation      |           boolean            |   false   | disable the filter animation for huge lists (especially on Android)                                             |
-| onDoneButtonPress           |           function           | undefined | handle the onDoneButtonPress function                                                                           |
-| doneButtonTextStyle         |            style             |  default  | change the done button's text style                                                                             |
-| doneButtonShadowColor       |            style             |  default  | change the done button's shadow style                                                                           |
-| multiSelectionText          |            string            |  default  | change the 3 or more items are selected's text part                                                             |
-| placeholderTextStyle   |            style             |  default  | extends or override the default placeholder's text style                                                        |
+| Property               |             Type             |    Default    | Description                                                                                                     |
+| ---------------------- | :--------------------------: | :-----------: | --------------------------------------------------------------------------------------------------------------- |
+| onSelect               |           function           |   undefined   | set the selection function when a menu item is selected                                                         |
+| data                   | Array<IMultiSelectDataTypes> |   undefined   | set the menu item data array for generating menu bar items                                                      |
+| width                  |            number            |      250      | change the width of the component                                                                               |
+| height                 |            number            |      50       | change the height of the main single select button                                                              |
+| darkMode               |           boolean            |     false     | change the theme of the component to `dark theme`                                                               |
+| placeholder            |            string            |   "Select"    | change the placeholder of the single select component                                                           |
+| imageHeight            |            number            |      25       | change the image source's menu item's image height                                                              |
+| imageWidth             |            number            |      25       | change the image source's menu item's image width                                                               |
+| ImageComponent         |          component           |     Image     | set your own custom Image component instead of default `Image` one                                              |
+| TextComponent          |          component           |     Text      | set your own custom Text component instead of default `Text` one                                                |
+| buttonContainerStyle   |          ViewStyle           |    default    | change/override the top of the single select button (the main one)                                              |
+| menuBarContainerStyle  |          ViewStyle           |    default    | change/override the top of the single select bottom menu bar                                                    |
+| arrowImageStyle        |          ImageStyle          |    default    | change/override the top of the arrow image's style                                                              |
+| menuItemTextStyle      |          TextStyle           |    default    | change/override the top of the each menu bar's item text style                                                  |
+| disableAbsolute        |           boolean            |     false     | if you do not want to use the library without absolute to fix bottom menubar's `overlaps` simply make it `true` |
+| menuBarContainerWidth  |            number            |      250      | change the bottom menu bar's width                                                                              |
+| menuBarContainerHeight |            number            |      150      | change the bottom menu bar's height                                                                             |
+| disableFilterAnimation |           boolean            |     false     | disable the filter animation for huge lists (especially on Android)                                             |
+| onDoneButtonPress      |           function           |   undefined   | handle the onDoneButtonPress function                                                                           |
+| doneButtonTextStyle    |            style             |    default    | change the done button's text style                                                                             |
+| doneButtonShadowColor  |            style             |    default    | change the done button's shadow style                                                                           |
+| multiSelectionText     |            string            |    default    | change the 3 or more items are selected's text part                                                             |
+| placeholderTextStyle   |            style             |    default    | extends or override the default placeholder's text style                                                        |
+| spinnerType            |            string            | "ThreeBounce" | change the spinner type                                                                                         |
+| spinnerSize            |            number            |      30       | change the spinner size                                                                                         |
+| spinnerColor           |            color             |    default    | change the spinner color                                                                                        |
+
+## List of available types for Spinner
+
+- CircleFlip
+- Bounce
+- Wave
+- WanderingCubes
+- Pulse
+- ChasingDots
+- ThreeBounce
+- Circle
+- 9CubeGrid
+- WordPress (IOS only)
+- FadingCircle
+- FadingCircleAlt
+- Arc (IOS only)
+- ArcAlt (IOS only)
 
 ## Future Plans
 
 - [x] ~~LICENSE~~
 - [x] ~~Typescript Challenge!~~
-- [ ] Dark Mode (Coming Soon!)
+- [x] ~~Dark Mode (Coming Soon!)~~
 - [ ] Write an article about the lib on Medium
 
 ## Credits

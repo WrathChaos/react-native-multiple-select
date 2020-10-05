@@ -9,6 +9,8 @@ interface Style {
   doneButtonTextStyle: TextStyle;
   checkboxContainerStyle: ViewStyle;
   menuBarItemContainerGlue: ViewStyle;
+  listStyle: ViewStyle;
+  spinnerContainer: ViewStyle;
 }
 
 export const _placeholderTextStyle = (
@@ -28,10 +30,7 @@ export const _placeholderTextStyle = (
       : ThemeColors[theme].placeholderColor,
 });
 
-export const _menuItemContainer = (
-  index: number,
-  data?: Array<IMultiSelectDataTypes>,
-): ViewStyle => ({
+export const _menuItemContainer = (): ViewStyle => ({
   paddingLeft: 8,
 });
 
@@ -78,7 +77,7 @@ export const _menuItemTextStyle = (theme: string): TextStyle => ({
 export const _doneButtonStyle = (
   backgroundColor: string = "#2d67ff",
   shadowColor: string = "#2d67ff",
-) => ({
+): ViewStyle => ({
   height: 50,
   width: "90%",
   marginTop: 8,
@@ -125,5 +124,15 @@ export default StyleSheet.create<Style>({
   doneButtonTextStyle: {
     color: "#fdfdfd",
     fontWeight: "bold",
+  },
+
+  listStyle: {
+    marginTop: 3,
+    marginBottom: 3,
+  },
+  spinnerContainer: {
+    marginTop: 32,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
