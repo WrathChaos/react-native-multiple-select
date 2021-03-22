@@ -1,8 +1,6 @@
 import React from "react";
 import { View, StatusBar, SafeAreaView } from "react-native";
-import RNMultiSelect, {
-  IMultiSelectDataTypes,
-} from "./build/dist/RNMultiSelect";
+import RNMultiSelect, { IMultiSelectDataTypes } from "@freakycoder/react-native-multiple-select";
 
 const staticData: Array<IMultiSelectDataTypes> = [
   {
@@ -65,6 +63,7 @@ const App = () => {
         >
           <RNMultiSelect
             disableAbsolute
+            fillColor="red"
             data={dynamicData}
             onSelect={(selectedItems) =>
               console.log("SelectedItems: ", selectedItems)
