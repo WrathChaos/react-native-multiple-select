@@ -1,6 +1,6 @@
 {
   "name": "@freakycoder/react-native-multiple-select",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Customizable & Animated, Easy to Use Multiple Select Library for React Native",
   "main": "./build/dist/RNMultiSelect.js",
   "repository": "git@github.com:WrathChaos/react-native-multiple-select.git",
@@ -32,9 +32,9 @@
     "postversion": "git push && git push --tags"
   },
   "peerDependencies": {
-    "react": ">= 16.x.x",
-    "react-native": ">= 0.55.x",
-    "react-native-spinkit": ">= 1.5.1"
+    "@freakycoder/react-native-bounceable": ">= 0.1.0",
+    "react-native-animated-spinkit": ">= 1.5.2",
+    "react-native-bouncy-checkbox": ">= 1.0.7"
   },
   "devDependencies": {
     "@types/react": "^16.9.22",

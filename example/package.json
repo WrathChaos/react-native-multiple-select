@@ -14,8 +14,8 @@
     "@freakycoder/react-native-multiple-select": "^0.2.0",
     "react": "16.13.1",
     "react-native": "0.63.2",
-    "react-native-bouncy-checkbox": "^1.0.7",
-    "react-native-spinkit": "^1.5.1"
+    "react-native-animated-spinkit": "^1.5.2",
+    "react-native-bouncy-checkbox": "^1.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

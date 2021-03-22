@@ -2,7 +2,7 @@ import React from "react";
 import { View, StatusBar, SafeAreaView } from "react-native";
 import RNMultiSelect, {
   IMultiSelectDataTypes,
-} from "@freakycoder/react-native-multiple-select";
+} from "./build/dist/RNMultiSelect";
 
 const staticData: Array<IMultiSelectDataTypes> = [
   {

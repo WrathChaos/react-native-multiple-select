@@ -10,7 +10,7 @@ import {
   LayoutAnimation,
   TouchableOpacity,
 } from "react-native";
-import Spinner from "react-native-spinkit";
+import { Chase } from "react-native-animated-spinkit";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import RNBounceable from "@freakycoder/react-native-bounceable";
 /**
@@ -46,7 +46,7 @@ export interface IMultiSelectProps {
   ImageComponent?: any;
   placeholder?: string;
   arrowImageStyle?: any;
-  spinnerType?: string;
+  Spinner?: any;
   spinnerSize?: number;
   spinnerColor?: string;
   doneButtonText?: string;
@@ -94,9 +94,10 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
     disableFilterAnimation,
     menuBarContainerHeight,
     doneButtonBackgroundColor,
-    spinnerType = "ThreeBounce",
+    Spinner = Chase,
     spinnerSize = 30,
     spinnerColor,
+    ...rest
   } = props;
   let iconRef: any = undefined;
 
@@ -322,8 +323,8 @@ const RNMultiSelect = (props: IMultiSelectProps) => {
   const renderSpinner = () => (
     <View style={styles.spinnerContainer}>
       <Spinner
+        {...rest}
         size={spinnerSize}
-        type={spinnerType}
         color={spinnerColor || ThemeColors[theme].textColor}
         isVisible={!(dataSource && dataSource.length > 0)}
       />
