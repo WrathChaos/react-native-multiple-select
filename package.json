@@ -1,9 +1,9 @@
 {
-  "name": "@freakycoder/react-native-multiple-select",
-  "version": "0.3.0",
+  "name": "@kuraydev/react-native-multiple-select",
+  "version": "1.0.0",
   "description": "Customizable & Animated, Easy to Use Multiple Select Library for React Native",
   "main": "./build/dist/RNMultiSelect.js",
-  "repository": "git@github.com:WrathChaos/react-native-multiple-select.git",
+  "repository": "git@github.com:kuraydev/react-native-multiple-select.git",
   "author": "FreakyCoder <kurayogun@gmail.com>",
   "license": "MIT",
   "homepage": "https://www.freakycoder.com",
@@ -34,7 +34,9 @@
   "peerDependencies": {
     "@freakycoder/react-native-bounceable": ">= 0.1.0",
     "react-native-animated-spinkit": ">= 1.5.2",
-    "react-native-bouncy-checkbox": ">= 1.0.7"
+    "react-native-bouncy-checkbox": ">= 1.0.7",
+    "react": ">=17.0.0",
+    "react-native": ">=0.64.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.22",
@@ -58,5 +60,22 @@
       "npx prettier --write",
       "eslint src/*.js --fix-dry-run"
     ]
-  }
+  },
+  "dependencies": {
+    "tslib": "^2.1.0"
+  },
+  "types": "./build/dist/RNMultiSelect.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/dist/RNMultiSelect.d.ts",
+      "default": "./build/dist/RNMultiSelect.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "build",
+    "lib",
+    "README.md",
+    "LICENSE"
+  ]
 }
